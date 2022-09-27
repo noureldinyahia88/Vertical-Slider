@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&family=Kanit:wght@300&family=Open+Sans&display=swap');
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Kanit', sans-serif;
+    height: 100vh;
+}
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+.overlay{
+    display: none;
+}
+.left-slide{
+    height: 100%;
+    width: 35%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
+}
+.left-slide > div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.left-slide h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: -30px;
+}
+.right-slide{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 65%;
+    transition: transform 0.5s ease-in-out;
+}
+.right-slide > div{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+.slider-container .action-buttons button{
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
+}
+button{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px;
+    color: #aaa;
+}
+button:hover{
+    color: #222;
+}
+button:focus{
+    outline: none;
+}
+.slider-container .action-buttons .down-button{
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.slider-container .action-buttons .up-button{
+    transform: translateY(-100%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+@media (max-width:912px) {
+    .overlay{
+        display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background-color: rgb(30, 29, 29);
+    left: 0;
+    right: 0;
+    z-index: 200;
+    }
+    .overlay.hide{
+        display: none;
+    }
+    .overlay img,
+    .overlay h3{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .overlay img{
+        max-width: 20%;
+        text-align: center;
+        font-size: 60px;
+        top: 40%;
+        left: 40%;
+        margin-bottom: 50px;
+        transition: transform 3s ease-in-out;
+        animation: phone 3s linear infinite;
+    }
+    @keyframes phone {
+        0%,50%{
+            transform: rotate(0deg);
+        }
+        75%,100%{
+            transform: rotate(90deg);
+        }
+    }
+    .overlay h3{
+        top: 50%;
+        width: 100%;
+        text-align: center;
+    }
+}
